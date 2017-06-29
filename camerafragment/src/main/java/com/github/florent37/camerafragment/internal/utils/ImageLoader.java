@@ -95,13 +95,13 @@ public final class ImageLoader {
 //            int imageViewHeight = target.getMeasuredHeight();
 //            int imageViewWidth = target.getMeasuredWidth();
 
-            Bitmap decodedBitmap = decodeSampledBitmapFromResource(url, imageViewWidth, imageViewHeight);
-            final Bitmap resultBitmap = rotateBitmap(decodedBitmap, getExifOrientation());
+            final Bitmap decodedBitmap = decodeSampledBitmapFromResource(url, imageViewWidth, imageViewHeight);
+//            final Bitmap resultBitmap = rotateBitmap(decodedBitmap, getExifOrientation());
 
             mainHandler.post(new Runnable() {
                 @Override
                 public void run() {
-                    target.setImageBitmap(resultBitmap);
+                    target.setImageBitmap(decodedBitmap);
                 }
             });
         }
